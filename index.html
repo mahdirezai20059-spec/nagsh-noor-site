@@ -53,17 +53,37 @@ box-shadow:0 0 15px gold;
 <a href="https://wa.me/93792513053" target="_blank">
 <button>📲 سفارش از طریق واتساپ</button>
 </a>
-
 <h2>📸 نمونه کارها</h2>
 
 <div class="gallery">
 
-<img src="IMG_20260227_133056.jpg">
-<img src="sample1.jpg">
-<img src="sample2.jpg">
-<img src="sample3.jpg">
+<script>
+const images = [
+"IMG-20260216-WA0000.jpg",
+"IMG-20260216-WA0001.jpg",
+"IMG-20260216-WA0003.jpg",
+"IMG-20260216-WA0004.jpg",
+"IMG-20260216-WA0006.jpg",
+"IMG-20260216-WA0007.jpg",
+"IMG-20260216-WA0008.jpg",
+"IMG-20260216-WA0009.jpg",
+"IMG-20260216-WA0010.jpg",
+"IMG-20260216-WA0011.jpg",
+"IMG-20260216-WA0012.jpg",
+"IMG-20260216-WA0013.jpg",
+"IMG-20260216-WA0014.jpg",
+"IMG-20260216-WA0015.jpg",
+"IMG-20260216-WA0016.jpg",
+"IMG-20260216-WA0017.jpg",
+"IMG-20260216-WA0018.jpg",
+"IMG_20260227_133056.jpg"
+];
+
+images.forEach(img => {
+document.write(`<img src="${img}" width="250" style="border-radius:15px;box-shadow:0 0 15px gold;margin:10px;">`);
+});
+</script>
 
 </div>
-
 </body>
 </html>
