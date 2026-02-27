@@ -1,44 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa">
 <head>
 <meta charset="UTF-8">
-<title>نقش نور</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نقش نور | حکاکی لیزری گردنبند</title>
+
+<meta name="description" content="حکاکی لیزری حرفه‌ای روی گردنبند و فلز با قیمت ویژه 150 افغانی. سفارش آنلاین از طریق واتساپ.">
 
 <style>
+
 body{
 background-color:black;
 color:white;
 text-align:center;
-font-family:Arial;
+font-family:Tahoma, Arial;
+margin:0;
+padding:0;
+}
+
+header{
+padding:20px;
+background:#111;
+box-shadow:0 0 15px gold;
 }
 
 h1{
 color:gold;
+margin:0;
 }
 
 button{
 background:gold;
 border:none;
-padding:12px 20px;
-font-size:16px;
-border-radius:10px;
+padding:14px 30px;
+font-size:18px;
+border-radius:12px;
 cursor:pointer;
+font-weight:bold;
+transition:0.3s;
 }
 
 button:hover{
 background:white;
+transform:scale(1.05);
 }
 
 .price-box{
 background:gold;
-padding:20px;
-border-radius:15px;
-margin:20px;
+padding:30px;
+border-radius:20px;
+margin:40px auto;
+width:85%;
+max-width:500px;
 }
 
 .price-box h2{
 color:black;
-font-size:40px;
+font-size:35px;
+margin:0;
 }
 
 .gallery{
@@ -46,68 +65,90 @@ display:flex;
 justify-content:center;
 flex-wrap:wrap;
 gap:20px;
+padding:20px;
 }
 
 .gallery img{
 width:250px;
 border-radius:15px;
 box-shadow:0 0 15px gold;
+transition:0.3s;
 }
+
+.gallery img:hover{
+transform:scale(1.07);
+}
+
+.comment-section{
+margin:60px auto;
+width:95%;
+max-width:800px;
+background:#111;
+padding:25px;
+border-radius:20px;
+box-shadow:0 0 15px gold;
+}
+
+footer{
+margin-top:40px;
+padding:20px;
+background:#000;
+color:gray;
+font-size:14px;
+}
+
 </style>
 
 </head>
 
 <body>
 
+<header>
 <h1>🌟 حکاکی لیزری نقش نور</h1>
+<p>حکاکی حرفه‌ای روی گردنبند، استیل و فلزات خاص</p>
+</header>
 
-<p>خدمات حکاکی روی گردنبند و فلز با بهترین کیفیت</p>
-
-<!-- قیمت -->
 <div class="price-box">
 <h2>🔥 قیمت ویژه فقط 150 افغانی 🔥</h2>
 </div>
 
-<!-- واتساپ -->
 <a href="https://wa.me/93792513053" target="_blank">
-<button>📲 سفارش از طریق واتساپ</button>
+<button>📲 سفارش سریع از طریق واتساپ</button>
 </a>
 
-<!-- گالری -->
-<h2>📸 نمونه کارها</h2>
+<h2 style="margin-top:60px;">📸 نمونه کارهای ما</h2>
 
 <div class="gallery">
+<img src="https://naghshnoor.af/images/work1.jpg" alt="نمونه کار 1">
+<img src="https://naghshnoor.af/images/work2.jpg" alt="نمونه کار 2">
+<img src="https://naghshnoor.af/images/work3.jpg" alt="نمونه کار 3">
+<img src="https://naghshnoor.af/images/work4.jpg" alt="نمونه کار 4">
+</div>
+
+<div class="comment-section">
+<h2>💬 نظرات مشتریان</h2>
+
+<div id="disqus_thread"></div>
 
 <script>
-const images = [
-"IMG-20260216-WA0000.jpg",
-"IMG-20260216-WA0001.jpg",
-"IMG-20260216-WA0003.jpg",
-"IMG-20260216-WA0004.jpg",
-"IMG-20260216-WA0006.jpg",
-"IMG-20260216-WA0007.jpg",
-"IMG-20260216-WA0008.jpg",
-"IMG-20260216-WA0009.jpg",
-"IMG-20260216-WA0010.jpg",
-"IMG-20260216-WA0011.jpg",
-"IMG-20260216-WA0012.jpg",
-"IMG-20260216-WA0013.jpg",
-"IMG-20260216-WA0014.jpg",
-"IMG-20260216-WA0015.jpg",
-"IMG-20260216-WA0016.jpg",
-"IMG-20260216-WA0017.jpg",
-"IMG-20260216-WA0018.jpg",
-"IMG_20260227_133056.jpg"
-];
+var disqus_config = function () {
+this.page.url = window.location.href;
+this.page.identifier = "naghsh-noor-site";
+};
 
-images.forEach(img => {
-document.write(
-`<img src="${img}">`
-);
-});
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://YOUR_SHORTNAME.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
 </script>
 
 </div>
+
+<footer>
+© 2026 نقش نور | تمامی حقوق محفوظ است
+</footer>
 
 </body>
 </html>
