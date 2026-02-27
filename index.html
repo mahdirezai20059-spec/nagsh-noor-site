@@ -3,11 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>نقش نور</title>
-<div style="background:gold; padding:20px; border-radius:15px; margin:20px;">
-<h1 style="color:black; font-size:45px;">
-🔥 قیمت ویژه فقط 150 افغانی 🔥
-</h1>
-</div>
+
 <style>
 body{
 background-color:black;
@@ -33,11 +29,23 @@ button:hover{
 background:white;
 }
 
+.price-box{
+background:gold;
+padding:20px;
+border-radius:15px;
+margin:20px;
+}
+
+.price-box h2{
+color:black;
+font-size:40px;
+}
+
 .gallery{
 display:flex;
 justify-content:center;
-gap:20px;
 flex-wrap:wrap;
+gap:20px;
 }
 
 .gallery img{
@@ -48,15 +56,24 @@ box-shadow:0 0 15px gold;
 </style>
 
 </head>
+
 <body>
 
 <h1>🌟 حکاکی لیزری نقش نور</h1>
 
 <p>خدمات حکاکی روی گردنبند و فلز با بهترین کیفیت</p>
 
+<!-- قیمت -->
+<div class="price-box">
+<h2>🔥 قیمت ویژه فقط 150 افغانی 🔥</h2>
+</div>
+
+<!-- واتساپ -->
 <a href="https://wa.me/93792513053" target="_blank">
 <button>📲 سفارش از طریق واتساپ</button>
 </a>
+
+<!-- گالری -->
 <h2>📸 نمونه کارها</h2>
 
 <div class="gallery">
@@ -84,10 +101,13 @@ const images = [
 ];
 
 images.forEach(img => {
-document.write(`<img src="${img}" width="250" style="border-radius:15px;box-shadow:0 0 15px gold;margin:10px;">`);
+document.write(
+`<img src="${img}">`
+);
 });
 </script>
 
 </div>
+
 </body>
 </html>
