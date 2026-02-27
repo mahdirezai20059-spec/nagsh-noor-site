@@ -26,7 +26,21 @@ cursor:pointer;
 }
 
 button:hover{
-background:white;}
+background:white;
+}
+
+.gallery{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.gallery img{
+width:250px;
+border-radius:15px;
+box-shadow:0 0 15px gold;
+}
 </style>
 
 </head>
@@ -39,17 +53,17 @@ background:white;}
 <a href="https://wa.me/93792513053" target="_blank">
 <button>📲 سفارش از طریق واتساپ</button>
 </a>
-<h2>📸 نمونه کار</h2>
 
-<img src="IMG_20260227_133056.jpg" width="250"
-style="border-radius:15px; box-shadow:0 0 15px gold;">
-</body>
-</html><h2>📸 نمونه کارها</h2>
+<h2>📸 نمونه کارها</h2>
 
-<div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+<div class="gallery">
 
-<img src="sample1.jpg" width="250" style="border-radius:15px; box-shadow:0 0 15px gold;">
-<img src="sample2.jpg" width="250" style="border-radius:15px; box-shadow:0 0 15px gold;">
-<img src="sample3.jpg" width="250" style="border-radius:15px; box-shadow:0 0 15px gold;">
+<img src="IMG_20260227_133056.jpg">
+<img src="sample1.jpg">
+<img src="sample2.jpg">
+<img src="sample3.jpg">
 
 </div>
+
+</body>
+</html>
