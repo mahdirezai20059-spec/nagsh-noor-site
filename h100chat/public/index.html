@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hazar Dastan Chat</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  font-family: Arial;
+  background:#111;
+  color:white;
+  text-align:center;
+}
+input{
+  padding:10px;
+  width:70%;
+}
+button{
+  padding:10px;
+  background:#00ff88;
+  border:none;
+}
+#messages{
+  margin-top:20px;
+  text-align:left;
+  padding:10px;
+}
+</style>
+</head>
+<body>
+
+<h2>🔥 هزار دستان پیام‌رسان</h2>
+
+<input type="text" id="msg" placeholder="پیام بنویس...">
+<button onclick="sendMessage()">ارسال</button>
+
+<div id="messages"></div>
+
+<script>
+
+function sendMessage(){
+  let text = document.getElementById("msg").value;
+  alert("پیام ارسال شد: " + text);
+}
+
+</script>
+
+</body>
+</html>
