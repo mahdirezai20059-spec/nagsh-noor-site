@@ -202,10 +202,7 @@ color:white;
 
 <script>
 
-// ✅ نام همه عکس‌هایی که داخل پوشه images هستند
-// اگر عکس جدید اضافه کردی فقط داخل این لیست اضافه کن
-const images = [];
-
+// 🔥 لیست عکس‌ها داخل پوشه images
 const imageFiles = [
 "IMG-20260216-WA0000.jpg",
 "IMG-20260216-WA0001.jpg",
@@ -226,33 +223,33 @@ const imageFiles = [
 "IMG_20260227_133056.jpg"
 ];
 
-imageFiles.forEach(file=>{
-images.push("images/" + file);
-});
-
 const gallery = document.getElementById("galleryBox");
 
-images.forEach(img => {
+// 🔥 ساخت گالری خودکار
+imageFiles.forEach(file => {
 
-let image = document.createElement("img");
-image.src = img;
-image.onclick = () => openImage(img);
+let imgPath = "images/" + file;
 
-gallery.appendChild(image);
+let img = document.createElement("img");
+img.src = imgPath;
+img.onclick = () => openImage(imgPath);
+
+gallery.appendChild(img);
 
 });
 
+// 🔥 باز کردن عکس بزرگ
 function openImage(src){
 document.getElementById("modal").style.display = "flex";
 document.getElementById("modalImg").src = src;
 }
 
+// 🔥 بستن عکس بزرگ
 function closeImage(){
 document.getElementById("modal").style.display = "none";
 }
 
 </script>
-
 <h2 id="order">📝 ثبت سفارش</h2>
 
 <div class="form-box">
