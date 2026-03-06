@@ -124,20 +124,22 @@ color:white;
 <?php
 $folder = "images/";
 
-$files = scandir($folder);
+if(is_dir($folder)){
+    $files = scandir($folder);
 
-foreach($files as $file){
+    foreach($files as $file){
 
-if($file == "." || $file == "..") continue;
+        if($file == "." || $file == "..") continue;
 
-$ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+        $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
 
-if(in_array($ext, ["jpg","jpeg","png","gif"])){
+        if(in_array($ext, ["jpg","jpeg","png","gif"])){
+            echo "<img src='".$folder.$file."'>";
+        }
+    }
 
-echo "<img src='$folder$file'>";
-
-}
-
+} else {
+    echo "<p>❌ پوشه images پیدا نشد</p>";
 }
 ?>
 
