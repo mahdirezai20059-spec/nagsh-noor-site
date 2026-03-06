@@ -120,30 +120,12 @@ color:white;
 <h2 id="gallery">📸 نمونه کارها</h2>
 
 <div class="gallery">
-
-<?php
-$folder = "images/";
-
-if(is_dir($folder)){
-    $files = scandir($folder);
-
-    foreach($files as $file){
-
-        if($file == "." || $file == "..") continue;
-
-        $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
-
-        if(in_array($ext, ["jpg","jpeg","png","gif"])){
-            echo "<img src='".$folder.$file."'>";
-        }
-    }
-
-} else {
-    echo "<p>❌ پوشه images پیدا نشد</p>";
-}
-?>
-
+<img src="images/IMG-20260216-WA0000.jpg">
+<img src="images/IMG-20260216-WA0001.jpg">
+<img src="images/IMG-20260216-WA0003.jpg">
+<img src="images/IMG-20260216-WA0004.jpg">
 </div>
+ 
 <h2 id="order">📝 ثبت سفارش</h2>
 
 <div class="form-box">
