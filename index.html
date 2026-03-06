@@ -23,6 +23,35 @@ text-align:center;
 /* ===== منو ===== */
 
 nav{
+.gallery{
+display:grid;
+grid-template-columns: repeat(4, 1fr);
+gap:20px;
+padding:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:15px;
+transition:0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* ===== موبایل ===== */
+@media(max-width:900px){
+.gallery{
+grid-template-columns: repeat(3, 1fr);
+}
+}
+
+@media(max-width:600px){
+.gallery{
+grid-template-columns: repeat(2, 1fr);
+}
+}
 background:black;
 padding:15px;
 box-shadow:0 0 15px gold;
