@@ -120,14 +120,23 @@ color:white;
 
 <h2 id="gallery">📸 نمونه کارها</h2>
 
-<div class="gallery">
+<div class="gallery" id="galleryContainer"></div>
 
-<?php
-$images = glob("images/*.{jpg,jpeg,png,gif}", GLOB_BRACE);
-foreach($images as $img){
-echo "<img src='$img'>";
-}
-?>
+<script>
+const container = document.getElementById("galleryContainer");
+
+const images = [
+"images/IMG-20260216-WA0000.jpg",
+"images/IMG-20260216-WA0001.jpg",
+"images/IMG-20260216-WA0003.jpg"
+];
+
+images.forEach(src => {
+let img = document.createElement("img");
+img.src = src;
+container.appendChild(img);
+});
+</script>
 
 </div>
 
