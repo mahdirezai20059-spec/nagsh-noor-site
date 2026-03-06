@@ -1,119 +1,216 @@
-<?php
-$images = glob("images/*.{jpg,jpeg,png,gif}", GLOB_BRACE);
-?>
-
 <!DOCTYPE html>
 <html lang="fa">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سیستم حرفه‌ای نقش نور</title>
+<title>نقش نور | حرفه‌ای</title>
 
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:tahoma;
+}
+
+body{
 background:#0f0f0f;
 color:white;
 text-align:center;
 }
 
-h1{color:gold;}
+/* ===== منو ===== */
+
+nav{
+background:black;
+padding:15px;
+box-shadow:0 0 15px gold;
+}
+
+nav a{
+color:gold;
+margin:15px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* ===== هدر ===== */
+
+header{
+padding:50px 20px;
+}
+
+header h1{
+color:gold;
+font-size:35px;
+}
+
+.btn{
+background:#25D366;
+padding:12px 25px;
+border-radius:30px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+display:inline-block;
+margin:10px;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+}
+
+/* ===== گالری حرفه‌ای ===== */
 
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+gap:25px;
 padding:40px;
 }
 
 .gallery img{
 width:100%;
-border-radius:15px;
-cursor:pointer;
-}
-
-.btn{
-background:gold;
-color:black;
-padding:10px 20px;
 border-radius:20px;
-text-decoration:none;
-display:inline-block;
-margin:10px;
+box-shadow:0 0 15px gold;
+transition:0.3s;
 }
 
-.admin{
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* ===== فرم ===== */
+
+.form-box{
 background:#111;
 padding:30px;
-margin:20px auto;
-width:300px;
 border-radius:20px;
+width:90%;
+margin:auto;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:10px;
+border:none;
+}
+
+/* ===== فوتر ===== */
+
+footer{
+margin-top:40px;
+padding:20px;
+background:black;
+}
+
+.whatsapp-fixed{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+color:white;
 }
 
 </style>
 </head>
+
 <body>
 
-<h1>✨ نقش نور - پنل حرفه‌ای</h1>
+<nav>
+<a href="#">خانه</a>
+<a href="#gallery">نمونه کار</a>
+<a href="#order">سفارش</a>
+</nav>
 
-<div class="admin">
+<header>
+<h1>✨ حکاکی لیزری نقش نور</h1>
 
-<h3>🔐 ورود مدیر</h3>
+<a class="btn" href="https://wa.me/93790920688" target="_blank">
+واتساپ شماره 1
+</a>
 
-<form method="POST">
-<input type="password" name="pass" placeholder="رمز" required>
-<button class="btn" name="login">ورود</button>
-</form>
+<a class="btn" href="https://wa.me/93792513053" target="_blank">
+واتساپ شماره 2
+</a>
 
-<?php
-if(isset($_POST['login'])){
-if($_POST['pass']=="1234"){
-$_SESSION['admin']=true;
-echo "<p style='color:lime'>✅ وارد شدید</p>";
-}else{
-echo "<p style='color:red'>❌ رمز اشتباه</p>";
-}
-}
-?>
+</header>
 
-</div>
-
-<?php if(isset($_SESSION['admin'])){ ?>
-
-<div>
-<h2>📤 آپلود عکس</h2>
-
-<form action="upload.php" method="POST" enctype="multipart/form-data">
-<input type="file" name="image" required>
-<button class="btn">آپلود</button>
-</form>
-</div>
-
-<?php } ?>
-
-<h2>📸 گالری</h2>
+<h2 id="gallery">📸 نمونه کارها</h2>
 
 <div class="gallery">
 
-<?php foreach($images as $img){ ?>
-<div>
-<img src="<?php echo $img; ?>">
+<img src="images/IMG-20260216-WA0000.jpg">
+<img src="images/IMG-20260216-WA0001.jpg">
+<img src="images/IMG-20260216-WA0002.jpg">
+<img src="images/IMG-20260216-WA0003.jpg">
+<img src="images/IMG-20260216-WA0004.jpg">
+<img src="images/IMG-20260216-WA0006.jpg">
+<img src="images/IMG-20260216-WA0007.jpg">
+<img src="images/IMG-20260216-WA0008.jpg">
+<img src="images/IMG-20260216-WA0009.jpg">
+<img src="images/IMG-20260216-WA0010.jpg">
+<img src="images/IMG-20260216-WA0011.jpg">
+<img src="images/IMG-20260216-WA0012.jpg">
+<img src="images/IMG-20260216-WA0013.jpg">
+<img src="images/IMG-20260216-WA0014.jpg">
+<img src="images/IMG-20260216-WA0016.jpg">
+<img src="images/IMG-20260216-WA0017.jpg">
+<img src="images/IMG-20260216-WA0018.jpg">
 
-<?php if(isset($_SESSION['admin'])){ ?>
-<form action="delete.php" method="POST">
-<input type="hidden" name="file" value="<?php echo $img; ?>">
-<button class="btn" style="background:red;color:white;">
-حذف
+<img src="images/IMG-20260224-WA0000.jpg">
+<img src="images/IMG-20260224-WA0000(1).jpg">
+
+<img src="images/IMG-20260306-WA0002.jpg">
+<img src="images/IMG-20260306-WA0003.jpg">
+<img src="images/IMG-20260306-WA0004.jpg">
+<img src="images/IMG-20260306-WA0005.jpg">
+<img src="images/IMG-20260306-WA0006.jpg">
+<img src="images/IMG-20260306-WA0007.jpg">
+<img src="images/IMG-20260306-WA0008.jpg">
+<img src="images/IMG-20260306-WA0009.jpg">
+<img src="images/IMG-20260306-WA0010.jpg">
+<img src="images/IMG-20260306-WA0011.jpg">
+<img src="images/IMG-20260306-WA0012.jpg">
+<img src="images/IMG-20260306-WA0013.jpg">
+<img src="images/IMG-20260306-WA0015.jpg">
+<img src="images/IMG-20260306-WA0016.jpg">
+
+<!-- اگر عکس‌های دیگر داری اینجا اضافه کن -->
+
+</div>
+<h2 id="order">📝 ثبت سفارش</h2>
+
+<div class="form-box">
+
+<form action="save_order.php" method="POST">
+
+<input type="text" name="name" placeholder="نام شما" required>
+<input type="text" name="phone" placeholder="شماره تماس" required>
+<textarea name="desc" placeholder="توضیحات سفارش" required></textarea>
+
+<input type="password" name="password" placeholder="رمز مدیر">
+
+<button type="submit" class="btn">
+💾 ارسال سفارش
 </button>
+
 </form>
-<?php } ?>
 
 </div>
-<?php } ?>
 
-</div>
+<a class="whatsapp-fixed" href="https://wa.me/93790920688">💬</a>
+
+<footer>
+© 2026 نقش نور | طراحی حرفه‌ای
+</footer>
 
 </body>
 </html>
