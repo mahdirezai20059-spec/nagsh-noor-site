@@ -8,147 +8,173 @@
 <style>
 
 body{
-background-color:black;
+margin:0;
+font-family:tahoma;
+background:#0a0a0a;
 color:white;
 text-align:center;
-font-family:Tahoma, Arial;
-margin:0;
-padding:0;
 }
 
-h1{
+nav{
+background:black;
+padding:15px;
+box-shadow:0 0 15px gold;
+}
+
+nav a{
 color:gold;
-margin-top:30px;
-}
-
-button{
-background:gold;
-border:none;
-padding:12px 25px;
-font-size:16px;
-border-radius:10px;
-cursor:pointer;
+margin:15px;
+text-decoration:none;
 font-weight:bold;
 }
 
-button:hover{
-background:white;
+header{
+padding:40px;
 }
 
-.price-box{
-background:gold;
-padding:25px;
-border-radius:15px;
-margin:30px auto;
-width:80%;
+header h1{
+color:gold;
+font-size:40px;
 }
 
-.price-box h2{
-color:black;
-font-size:35px;
-margin:0;
+.btn{
+background:#25D366;
+padding:15px 30px;
+border-radius:50px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+display:inline-block;
+margin:10px;
 }
 
 .gallery{
 display:flex;
-justify-content:center;
 flex-wrap:wrap;
+justify-content:center;
 gap:20px;
 padding:20px;
 }
 
 .gallery img{
 width:250px;
-height:auto;
-border-radius:15px;
+border-radius:20px;
 box-shadow:0 0 15px gold;
-transition:0.3s;
 }
 
-.gallery img:hover{
-transform:scale(1.05);
-}
-
-.comment-section{
-margin:50px auto;
-width:90%;
+.form-box{
 background:#111;
+padding:30px;
+border-radius:20px;
+width:90%;
+margin:auto;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:10px;
+border:none;
+}
+
+footer{
+margin-top:40px;
 padding:20px;
-border-radius:15px;
+background:black;
+}
+
+.whatsapp-fixed{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+color:white;
 }
 
 </style>
-
 </head>
-
 <body>
 
-<img src="IMG-20260216-WA0011.jpg" width="300">
+<nav>
+<a href="#">خانه</a>
+<a href="#gallery">نمونه کار</a>
+<a href="#order">سفارش</a>
+</nav>
 
-<h1>🌟 حکاکی لیزری نقش نور</h1>
+<header>
+<h1>✨ حکاکی لیزری نقش نور</h1>
 
-<p>خدمات حکاکی روی گردنبند و فلز با بهترین کیفیت</p>
-
-<div class="price-box">
-<h2>🔥 قیمت ویژه فقط 150 افغانی 🔥</h2>
-</div>
-
-<a href="https://wa.me/93792513053" target="_blank">
-<button>📲 سفارش از طریق واتساپ</button>
-</a>
-<br><br>
-
-<a href="https://wa.me/93790920688" target="_blank">
-<button>📲 سفارش از طریق واتساپ</button>
+<a class="btn" href="https://wa.me/93790920688?text=سلام%20سفارش%20دارم" target="_blank">
+واتساپ جدید
 </a>
 
-<h2 style="margin-top:50px;">📸 نمونه کارها</h2>
+<a class="btn" href="https://wa.me/93792513053?text=سلام%20سفارش%20دارم" target="_blank">
+واتساپ قدیمی
+</a>
+
+</header>
+
+<h2 id="gallery">📸 نمونه کارها</h2>
 
 <div class="gallery">
 
-<img src="IMG-20260216-WA0000.jpg" width="300">
-<img src="IMG-20260216-WA0001.jpg" width="300">
-<img src="IMG-20260216-WA0003.jpg" width="300">
-<img src="IMG-20260216-WA0004.jpg" width="300">
-<img src="IMG-20260216-WA0006.jpg" width="300">
-<img src="IMG-20260216-WA0007.jpg" width="300">
-<img src="IMG-20260216-WA0008.jpg" width="300">
-<img src="IMG-20260216-WA0009.jpg" width="300">
-<img src="IMG-20260216-WA0010.jpg" width="300">
-<img src="IMG-20260216-WA0011.jpg" width="300">
-<img src="IMG-20260216-WA0012.jpg" width="300">
-<img src="IMG-20260216-WA0013.jpg" width="300">
-<img src="IMG-20260216-WA0014.jpg" width="300">
-<img src="IMG-20260216-WA0015.jpg" width="300">
-<img src="IMG-20260216-WA0016.jpg" width="300">
-<img src="IMG-20260216-WA0017.jpg" width="300">
-<img src="IMG-20260216-WA0018.jpg" width="300">
-<img src="IMG-20260224-WA0000.jpg" width="300">
-<img src="IMG_20260227_133056.jpg" width="300">
-<img src="IMG-20260216-WA0011.jpg  images" width="300">
-</div>
-
-<div class="comment-section">
-
-<h2>💬 نظرات مشتریان</h2>
-
-<div id="disqus_thread"></div>
-
-<script>
-var disqus_config = function () {
-this.page.url = window.location.href;
-this.page.identifier = "naghsh-noor-site";
-};
-
-(function() {
-var d = document, s = d.createElement('script');
-s.src = 'https://YOUR_SHORTNAME.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
+<?php
+$images = glob("images/*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+foreach($images as $img){
+echo "<img src='$img'>";
+}
+?>
 
 </div>
+
+<h2 id="order">📝 ثبت سفارش</h2>
+
+<div class="form-box">
+
+<form action="save_order.php" method="POST">
+
+<input type="text" name="name" placeholder="نام شما" required>
+
+<input type="text" name="phone" placeholder="شماره تماس" required>
+
+<textarea name="desc" placeholder="توضیحات سفارش" required></textarea>
+
+<input type="password" name="password" placeholder="رمز مدیر">
+
+<button type="submit" class="btn">
+💾 ارسال و ذخیره
+</button>
+
+</form>
+<form action="save_order.php" method="POST">
+
+<input type="text" name="name" placeholder="نام شما" required>
+
+<input type="text" name="phone" placeholder="شماره تماس" required>
+
+<!-- ✅ این را اینجا اضافه کن -->
+<input type="text" name="price" placeholder="قیمت سفارش" required>
+
+<textarea name="desc" placeholder="توضیحات سفارش" required></textarea>
+
+<input type="password" name="password" placeholder="رمز مدیر">
+
+<button type="submit" class="btn">
+💾 ارسال و ذخیره
+</button>
+
+</form>
+</div>
+
+<a class="whatsapp-fixed" href="https://wa.me/93790920688">💬</a>
+
+<footer>
+© 2026 نقش نور
+</footer>
 
 </body>
 </html>
