@@ -1,279 +1,119 @@
+<?php
+$images = glob("images/*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+?>
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نقش نور</title>
+<title>سیستم حرفه‌ای نقش نور</title>
 
 <style>
-.hero{
-background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-url('images/cover.jpg');
-background-size: cover;
-background-position: center;
-height: 90vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-color:white;
-padding:20px;
-}
-
-.hero h1{
-font-size:50px;
-color:gold;
-}
-
-.hero p{
-font-size:20px;
-max-width:600px;
-}
-
-.hero .btn{
-background:gold;
-color:black;
-padding:15px 30px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-margin-top:20px;
-transition:0.3s;
-}
-
-.hero .btn:hover{
-background:white;
-transform:scale(1.1);
-}
 
 body{
 margin:0;
 font-family:tahoma;
-background:#0a0a0a;
+background:#0f0f0f;
 color:white;
 text-align:center;
 }
 
-nav{
-background:black;
-padding:15px;
-box-shadow:0 0 15px gold;
-}
-
-nav a{
-color:gold;
-margin:15px;
-text-decoration:none;
-font-weight:bold;
-}
-
-header{
-padding:40px;
-}
-
-header h1{
-color:gold;
-font-size:40px;
-}
-
-.btn{
-background:#25D366;
-padding:15px 30px;
-border-radius:50px;
-color:white;
-text-decoration:none;
-font-weight:bold;
-display:inline-block;
-margin:10px;
-}
+h1{color:gold;}
 
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
 gap:20px;
-padding:20px;
+padding:40px;
 }
 
 .gallery img{
 width:100%;
-border-radius:20px;
-box-shadow:0 0 15px gold;
+border-radius:15px;
 cursor:pointer;
-transition:0.3s;
 }
 
-.gallery img:hover{
-transform:scale(1.05);
-}
-
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-justify-content:center;
-align-items:center;
-}
-
-.modal img{
-max-width:90%;
-max-height:90%;
+.btn{
+background:gold;
+color:black;
+padding:10px 20px;
 border-radius:20px;
+text-decoration:none;
+display:inline-block;
+margin:10px;
 }
 
-.form-box{
+.admin{
 background:#111;
 padding:30px;
+margin:20px auto;
+width:300px;
 border-radius:20px;
-width:90%;
-margin:auto;
-}
-
-input,textarea{
-width:100%;
-padding:10px;
-margin:10px 0;
-border-radius:10px;
-border:none;
-}
-
-footer{
-margin-top:40px;
-padding:20px;
-background:black;
-}
-
-.whatsapp-fixed{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-padding:15px;
-border-radius:50%;
-text-decoration:none;
-color:white;
 }
 
 </style>
 </head>
 <body>
 
-<nav>
-<a href="#">خانه</a>
-<a href="#gallery">نمونه کار</a>
-<a href="#order">سفارش</a>
-</nav>
+<h1>✨ نقش نور - پنل حرفه‌ای</h1>
 
-<header>
-<div class="hero">
+<div class="admin">
 
-<h1>✨ نقش نور</h1>
+<h3>🔐 ورود مدیر</h3>
 
-<p>
-ما حرفه‌ای‌ترین مرکز حکاکی لیزری هستیم
-با کیفیت بالا و طراحی مدرن برای انگشتر، هدیه و محصولات خاص.
-</p>
-
-<a href="#gallery" class="btn">دیدن نمونه کارها</a>
-
-</div>
-<a class="btn" href="https://wa.me/93790920688?text=سلام%20سفارش%20دارم" target="_blank">
-واتساپ جدید
-</a>
-
-<a class="btn" href="https://wa.me/93792513053?text=سلام%20سفارش%20دارم" target="_blank">
-واتساپ قدیمی
-</a>
-
-</header>
-
-<h2 id="gallery">📸 نمونه کارها</h2>
-
-<div class="gallery" id="galleryBox"></div>
-
-<!-- مودال برای بزرگ شدن عکس -->
-<div class="modal" id="modal" onclick="closeImage()">
-<img id="modalImg">
-</div>
-
-<script>
-
-// 🔥 لیست عکس‌ها داخل پوشه images
-const imageFiles = [
-"IMG-20260216-WA0000.jpg",
-"IMG-20260216-WA0001.jpg",
-"IMG-20260216-WA0003.jpg",
-"IMG-20260216-WA0004.jpg",
-"IMG-20260216-WA0006.jpg",
-"IMG-20260216-WA0007.jpg",
-"IMG-20260216-WA0008.jpg",
-"IMG-20260216-WA0009.jpg",
-"IMG-20260216-WA0012.jpg",
-"IMG-20260216-WA0013.jpg",
-"IMG-20260216-WA0014.jpg",
-"IMG-20260216-WA0015.jpg",
-"IMG-20260216-WA0016.jpg",
-"IMG-20260216-WA0017.jpg",
-"IMG-20260216-WA0018.jpg",
-"IMG-20260224-WA0000.jpg",
-"IMG_20260227_133056.jpg"
-];
-
-const gallery = document.getElementById("galleryBox");
-
-// 🔥 ساخت گالری خودکار
-imageFiles.forEach(file => {
-
-let imgPath = "images/" + file;
-
-let img = document.createElement("img");
-img.src = imgPath;
-img.onclick = () => openImage(imgPath);
-
-gallery.appendChild(img);
-
-});
-
-// 🔥 باز کردن عکس بزرگ
-function openImage(src){
-document.getElementById("modal").style.display = "flex";
-document.getElementById("modalImg").src = src;
-}
-
-// 🔥 بستن عکس بزرگ
-function closeImage(){
-document.getElementById("modal").style.display = "none";
-}
-
-</script>
-<h2 id="order">📝 ثبت سفارش</h2>
-
-<div class="form-box">
-
-<form action="save_order.php" method="POST">
-
-<input type="text" name="name" placeholder="نام شما" required>
-<input type="text" name="phone" placeholder="شماره تماس" required>
-<textarea name="desc" placeholder="توضیحات سفارش" required></textarea>
-<input type="password" name="password" placeholder="رمز مدیر">
-
-<button type="submit" class="btn">
-💾 ارسال و ذخیره
-</button>
-
+<form method="POST">
+<input type="password" name="pass" placeholder="رمز" required>
+<button class="btn" name="login">ورود</button>
 </form>
 
+<?php
+if(isset($_POST['login'])){
+if($_POST['pass']=="1234"){
+$_SESSION['admin']=true;
+echo "<p style='color:lime'>✅ وارد شدید</p>";
+}else{
+echo "<p style='color:red'>❌ رمز اشتباه</p>";
+}
+}
+?>
+
 </div>
 
-<a class="whatsapp-fixed" href="https://wa.me/93790920688">💬</a>
+<?php if(isset($_SESSION['admin'])){ ?>
 
-<footer>
-© 2026 نقش نور
-</footer>
+<div>
+<h2>📤 آپلود عکس</h2>
+
+<form action="upload.php" method="POST" enctype="multipart/form-data">
+<input type="file" name="image" required>
+<button class="btn">آپلود</button>
+</form>
+</div>
+
+<?php } ?>
+
+<h2>📸 گالری</h2>
+
+<div class="gallery">
+
+<?php foreach($images as $img){ ?>
+<div>
+<img src="<?php echo $img; ?>">
+
+<?php if(isset($_SESSION['admin'])){ ?>
+<form action="delete.php" method="POST">
+<input type="hidden" name="file" value="<?php echo $img; ?>">
+<button class="btn" style="background:red;color:white;">
+حذف
+</button>
+</form>
+<?php } ?>
+
+</div>
+<?php } ?>
+
+</div>
 
 </body>
 </html>
