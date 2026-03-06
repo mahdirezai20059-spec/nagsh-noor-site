@@ -6,6 +6,46 @@
 <title>نقش نور</title>
 
 <style>
+.hero{
+background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+url('images/cover.jpg');
+background-size: cover;
+background-position: center;
+height: 90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+.hero h1{
+font-size:50px;
+color:gold;
+}
+
+.hero p{
+font-size:20px;
+max-width:600px;
+}
+
+.hero .btn{
+background:gold;
+color:black;
+padding:15px 30px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+margin-top:20px;
+transition:0.3s;
+}
+
+.hero .btn:hover{
+background:white;
+transform:scale(1.1);
+}
 
 body{
 margin:0;
@@ -129,8 +169,18 @@ color:white;
 </nav>
 
 <header>
-<h1>✨ حکاکی لیزری نقش نور</h1>
+<div class="hero">
 
+<h1>✨ نقش نور</h1>
+
+<p>
+ما حرفه‌ای‌ترین مرکز حکاکی لیزری هستیم
+با کیفیت بالا و طراحی مدرن برای انگشتر، هدیه و محصولات خاص.
+</p>
+
+<a href="#gallery" class="btn">دیدن نمونه کارها</a>
+
+</div>
 <a class="btn" href="https://wa.me/93790920688?text=سلام%20سفارش%20دارم" target="_blank">
 واتساپ جدید
 </a>
