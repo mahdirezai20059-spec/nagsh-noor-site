@@ -49,17 +49,40 @@ margin:10px;
 }
 
 .gallery{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
 gap:20px;
 padding:20px;
 }
 
 .gallery img{
-width:250px;
+width:100%;
 border-radius:20px;
 box-shadow:0 0 15px gold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+}
+
+.modal img{
+max-width:90%;
+max-height:90%;
+border-radius:20px;
 }
 
 .form-box{
@@ -97,24 +120,6 @@ color:white;
 
 </style>
 </head>
-<style>
-.gallery{
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-gap: 15px;
-}
-
-.gallery img{
-width: 100%;
-border-radius: 15px;
-cursor: pointer;
-transition: 0.3s;
-}
-
-.gallery img:hover{
-transform: scale(1.05);
-}
-</style>
 <body>
 
 <nav>
@@ -135,23 +140,69 @@ transform: scale(1.05);
 </a>
 
 </header>
-<h2>📸 نمونه کارها</h2>
 
-<div class="gallery">
+<h2 id="gallery">📸 نمونه کارها</h2>
 
-<img src="IMG-20260216-WA0000.jpg" width="250">
-<img src="IMG-20260216-WA0001.jpg" width="250">
-<img src="IMG-20260216-WA0003.jpg" width="250">
-<img src="IMG-20260216-WA0004.jpg" width="250">
-<img src="IMG-20260216-WA0006.jpg" width="250">
-<img src="IMG-20260216-WA0007.jpg" width="250">
-<img src="IMG-20260216-WA0008.jpg" width="250">
-<img src="IMG-20260216-WA0009.jpg" width="250">
-<img src="IMG-20260216-WA0012.jpg" width="250">
-<img src="IMG_20260227_133056.jpg" width="250">
+<div class="gallery" id="galleryBox"></div>
 
+<!-- مودال برای بزرگ شدن عکس -->
+<div class="modal" id="modal" onclick="closeImage()">
+<img id="modalImg">
 </div>
- 
+
+<script>
+
+// ✅ نام همه عکس‌هایی که داخل پوشه images هستند
+// اگر عکس جدید اضافه کردی فقط داخل این لیست اضافه کن
+const images = [];
+
+const imageFiles = [
+"IMG-20260216-WA0000.jpg",
+"IMG-20260216-WA0001.jpg",
+"IMG-20260216-WA0003.jpg",
+"IMG-20260216-WA0004.jpg",
+"IMG-20260216-WA0006.jpg",
+"IMG-20260216-WA0007.jpg",
+"IMG-20260216-WA0008.jpg",
+"IMG-20260216-WA0009.jpg",
+"IMG-20260216-WA0012.jpg",
+"IMG-20260216-WA0013.jpg",
+"IMG-20260216-WA0014.jpg",
+"IMG-20260216-WA0015.jpg",
+"IMG-20260216-WA0016.jpg",
+"IMG-20260216-WA0017.jpg",
+"IMG-20260216-WA0018.jpg",
+"IMG-20260224-WA0000.jpg",
+"IMG_20260227_133056.jpg"
+];
+
+imageFiles.forEach(file=>{
+images.push("images/" + file);
+});
+
+const gallery = document.getElementById("galleryBox");
+
+images.forEach(img => {
+
+let image = document.createElement("img");
+image.src = img;
+image.onclick = () => openImage(img);
+
+gallery.appendChild(image);
+
+});
+
+function openImage(src){
+document.getElementById("modal").style.display = "flex";
+document.getElementById("modalImg").src = src;
+}
+
+function closeImage(){
+document.getElementById("modal").style.display = "none";
+}
+
+</script>
+
 <h2 id="order">📝 ثبت سفارش</h2>
 
 <div class="form-box">
@@ -159,11 +210,8 @@ transform: scale(1.05);
 <form action="save_order.php" method="POST">
 
 <input type="text" name="name" placeholder="نام شما" required>
-
 <input type="text" name="phone" placeholder="شماره تماس" required>
-
 <textarea name="desc" placeholder="توضیحات سفارش" required></textarea>
-
 <input type="password" name="password" placeholder="رمز مدیر">
 
 <button type="submit" class="btn">
@@ -171,24 +219,7 @@ transform: scale(1.05);
 </button>
 
 </form>
-<form action="save_order.php" method="POST">
 
-<input type="text" name="name" placeholder="نام شما" required>
-
-<input type="text" name="phone" placeholder="شماره تماس" required>
-
-<!-- ✅ این را اینجا اضافه کن -->
-<input type="text" name="price" placeholder="قیمت سفارش" required>
-
-<textarea name="desc" placeholder="توضیحات سفارش" required></textarea>
-
-<input type="password" name="password" placeholder="رمز مدیر">
-
-<button type="submit" class="btn">
-💾 ارسال و ذخیره
-</button>
-
-</form>
 </div>
 
 <a class="whatsapp-fixed" href="https://wa.me/93790920688">💬</a>
